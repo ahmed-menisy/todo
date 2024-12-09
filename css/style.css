@@ -1,0 +1,119 @@
+:root {
+  --main-color: #9361f5;
+}
+body {
+  font-family: "Exo 2", serif;
+  background-color: var(--main-color);
+}
+.add-task {
+  background-color: var(--main-color);
+  padding: 10px 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+}
+.custom-input:focus {
+  box-shadow: 0 0 0 5px #9261f57f;
+}
+.task-container .icon {
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.task-container .task-name {
+  cursor: pointer;
+  position: relative;
+}
+.task-container .task-name::after {
+  content: "click to completed";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 8px;
+  text-wrap: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.task-container .task-name:hover::after {
+  opacity: 1;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  border-width: 3px 2px 3px 2px;
+  border-style: solid dotted solid dotted;
+  border-color: #de3500 rgba(255, 255, 255, 0.3) #fff rgba(151, 107, 93, 0.3);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: 1s rotate linear infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+  transform: translate(-10px, 19px) rotate(-35deg);
+}
+.loader:after {
+  border-color: #de3500 #0000 #0000 #0000;
+  transform: translate(32px, 3px) rotate(-35deg);
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0 0 0 / 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#progressBar {
+  height: 10px;
+  background-color: #9261f588;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+#progressBar #progress {
+  height: inherit;
+  background-color: #641df1;
+  width: 0%;
+  transition: width 0.7s;
+}
+
+.status-number {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 10px;
+  background-color: #9361f5;
+  color: #fff;
+}
