@@ -137,14 +137,14 @@ async function deleteTodo(idTodo) {
 
         if (data.message === "success") {
           /// getAll Data
+
           Swal.fire({
             title: "Deleted!",
             text: "Your Todo has been deleted.",
             icon: "success",
           });
-
-          await getAllTodos(); // Api Get Todo
         }
+        getAllTodos(); // Api Get Todo
       }
 
       hideLoading();
